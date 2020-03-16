@@ -2,6 +2,7 @@ package edu.blitstein.calc;
 
 import edu.blitstein.calc.engine.Calculator;
 import edu.blitstein.calc.exception.DivideByZeroException;
+import edu.blitstein.calc.exception.UnknownOpException;
 
 import java.util.Scanner;
 
@@ -9,7 +10,7 @@ public class CalculatorApp {
 
     //Numbers this close to zero are treated as if equal to zero.
     public static void main(String[] args)
-            throws DivideByZeroException {
+            throws DivideByZeroException, UnknownOpException {
         System.out.println("Calculator is on.");
         System.out.print("Format of each line: ");
         System.out.println("operator space number");
@@ -28,6 +29,7 @@ public class CalculatorApp {
             else {
                 double nextNumber = keyboard.nextDouble();
                 double result = clerk.evaluate(nextOp, clerk.getResult(), nextNumber);
+                clerk.setResult(result);
                 System.out.println("result " + nextOp + " " + nextNumber + " = " + result);
                 System.out.println("updated result = " + result);
             }
