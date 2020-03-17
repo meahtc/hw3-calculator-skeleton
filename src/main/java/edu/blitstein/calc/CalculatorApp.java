@@ -28,8 +28,8 @@ public class CalculatorApp {
                 done = true;
             else {
                 double nextNumber = keyboard.nextDouble();
-                double result = clerk.evaluate(nextOp, clerk.getResult(), nextNumber);
-                clerk.setResult(result);
+                clerk.evaluate(nextOp, nextNumber);
+                double result = clerk.getResult();
                 System.out.println("result " + nextOp + " " + nextNumber + " = " + result);
                 System.out.println("updated result = " + result);
             }
